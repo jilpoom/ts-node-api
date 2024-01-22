@@ -31,7 +31,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/menu/items", itemsRouter);
 
-// 에러 핸들링 마지막
+
 app.use(errorHandler);
 app.use(notFoundHandler);
 
