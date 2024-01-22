@@ -9,8 +9,7 @@
 - package.json
 ```json
 {
-  ...
-  "dependencies": {
+   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.2",
     "express": "^4.18.2",
