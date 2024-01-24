@@ -39,8 +39,7 @@ export const findAll = async (): Promise<Item[]> => Object.values(items);
 export const find = async (id: number): Promise<Item> => items[id];
 
 export const create = async (newItem: BaseItem): Promise<Item> => {
-    const id = new Date().valueOf();
-
+    const id = (await findAll()).length + 1;
     items[id] = {
         id,
         ...newItem,
