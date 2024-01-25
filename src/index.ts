@@ -20,7 +20,7 @@ if(!process.env.PORT) {
 }
 
 const PORT: number = parseInt(process.env.PORT as string, 10);
-const app = express();
+export const app = express();
 
 /**
  *  App Configuration
@@ -37,7 +37,11 @@ app.use(notFoundHandler);
 
 /**
  * Server Activation
+ * 통합 테스트를 위해 server.ts로 분리
  */
-app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
-});
+
+// app.listen(PORT, () => {
+//     console.log(`Listening on port ${PORT}`);
+// });
+
+
