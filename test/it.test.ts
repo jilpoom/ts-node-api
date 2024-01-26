@@ -6,6 +6,13 @@ import {app} from "../src";
 const request = supertest(app);
 const url: string = '/api/menu/items';
 
+const data: BaseItem = {
+    name: "New Image Name",
+    image: "new/file/path/image.png",
+    price: 10000,
+    description: "New Image Description"
+}
+
 describe('ItemRouter Integration Test', () => {
 
     it('GET /', async () => {
@@ -26,18 +33,12 @@ describe('ItemRouter Integration Test', () => {
     })
 
     it('POST /', async () => {
-        const data_create: BaseItem = {
-            name: "New Image Name",
-            image: "new/file/path/image.png",
-            price: 10000,
-            description: "New Image Description"
-        }
 
         const res = await request
             .post(`${url}`)
             .set('Accept', 'application/json')
             .type('application/json')
-            .send(data_create)
+            .send(data)
 
         const new_item = await request
             .get(`${url}/${res.body.id}`)
@@ -52,17 +53,11 @@ describe('ItemRouter Integration Test', () => {
         const id_exist = 1;
         const id_non_exist = 12345;
 
-        const data_update: BaseItem = {
-            name: "New Image Name",
-            image: "new/file/path/image.png",
-            price: 10000,
-            description: "New Image Description"
-        }
 
         const response_exist = await request.put(`${url}/${id_exist}`)
             .set('Accept', 'application/json')
             .type('application/json')
-            .send(data_update)
+            .send(data)
 
         expect(response_exist.status).toEqual(200);
         expect(response_exist.header['content-type']).toMatch('/json')
@@ -71,7 +66,7 @@ describe('ItemRouter Integration Test', () => {
         const response_non_exist = await request.put(`${url}/${id_non_exist}`)
             .set('Accept', 'application/json')
             .type('application/json')
-            .send(data_update);
+            .send(data);
 
         const new_item = await request
             .get(`${url}/${response_non_exist.body.id}`)
