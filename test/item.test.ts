@@ -26,20 +26,20 @@ const items: Items = {
     }
 };
 
-test('FindAll function\'s result should be all items', async () => {
+test("FindAll function's result should be all items", async () => {
     const result: Item[] = await ItemService.findAll();
 
     expect(Object.values(items)).toEqual(result);
 });
 
-test('Find function\'s result should be a item', async () => {
+test("Find function's result should be a item", async () => {
     const id: number = 1;
     const result: Item = await ItemService.find(1);
 
     expect(result).toEqual(items['1']);
 });
 
-test('Create Function\'s result should create a item', async () => {
+test("Create Function's result should create a item", async () => {
     const item: BaseItem = {
         description: '',
         image: '',

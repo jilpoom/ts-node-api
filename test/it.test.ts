@@ -17,19 +17,19 @@ describe('ItemRouter Integration Test', () => {
 
     it('GET /', async () => {
         const response = await request.get(url);
-        const service_result = await ItemService.findAll();
+        const items = await ItemService.findAll();
 
         expect(response.status).toEqual(200);
-        expect(response.body).toEqual(service_result);
+        expect(response.body).toEqual(items);
     })
 
     it('GET /:id', async () => {
         const id = 1;
         const response = await request.get(`${url}/${id}`);
-        const service_result = await ItemService.find(id);
+        const item = await ItemService.find(id);
 
         expect(response.status).toEqual(200);
-        expect(response.body).toEqual(service_result);
+        expect(response.body).toEqual(item);
     })
 
     it('POST /', async () => {
@@ -52,7 +52,6 @@ describe('ItemRouter Integration Test', () => {
     it('PUT /:id', async () => {
         const id_exist = 1;
         const id_non_exist = 12345;
-
 
         const response_exist = await request.put(`${url}/${id_exist}`)
             .set('Accept', 'application/json')
@@ -85,7 +84,6 @@ describe('ItemRouter Integration Test', () => {
             .expect(204);
 
         const all_items = await request.get(`${url}`);
-
 
         all_items.body.forEach((item: Item) => {
             expect(item.id).not.toEqual(id_exist);
