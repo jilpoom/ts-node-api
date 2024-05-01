@@ -3,7 +3,7 @@
 - [Node.js and TypeScript Tutorial: Build a CRUD API](https://auth0.com/blog/node-js-and-typescript-tutorial-build-a-crud-api/)
   를 참고하여 기본적인 Typscript CRUD 구조 API 구현
 - Jest를 활용한 유닛 테스트 
-- Jest, Supertest를 활용한 Controller(Router), Service 통합 테스트 (진행중)
+- Jest, Supertest를 활용한 Controller(Router), Service 통합 테스트
 - ...
 
 # 종속성 설치
@@ -33,7 +33,7 @@ $ > npx tsc --init
 ### Jest
 
 - Jest 및 Babel 설치
-    - Jest는 Typescript 환경을 테스트하기 위해서는 Jest의 Babel 사용 지침을 따라야 한다.
+    - Jest로 Typescript 환경을 테스트하기 위해서는 Babel 사용 지침을 따라야 한다.
     - [다음](https://jestjs.io/docs/next/getting-started#using-typescript)을 참고하여 Babel 환경을 구성한다.
 
 ```bash
@@ -91,7 +91,6 @@ app.listen(app.get('port'), () => {
     console.log(app.get('port'), '번 포트에서 대기 중');
 })
 ```
-
 
 
 ## 테스트 커버리지
