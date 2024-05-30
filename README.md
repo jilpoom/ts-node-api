@@ -1,7 +1,7 @@
 # ts-node-api
 
 - [Node.js and TypeScript Tutorial: Build a CRUD API](https://auth0.com/blog/node-js-and-typescript-tutorial-build-a-crud-api/)
-  를 참고하여 기본적인 Typscript CRUD 구조 API 구현
+  를 참고하여 기본적인 Typescript CRUD 구조 API 구현
 - Jest를 활용한 유닛 테스트 
 - Jest, Supertest를 활용한 Controller(Router), Service 통합 테스트
 - ...
